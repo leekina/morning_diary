@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:morning_diary/constant.dart';
 import 'package:morning_diary/models/question.dart';
 import 'package:morning_diary/screens/result_page.dart';
 
@@ -11,6 +12,7 @@ class QuestionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //backgroundColor: kQuestionBackgroundColor1,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
@@ -25,7 +27,9 @@ class QuestionPage extends StatelessWidget {
                 initialPage: 0,
                 enableInfiniteScroll: false,
               ),
-              items: _question.question.map((question) {
+              items: _question.question.asMap().entries.map((questionList) {
+                String question = questionList.value;
+                int idx = questionList.key;
                 return Builder(
                   builder: (BuildContext context) {
                     return Container(
@@ -34,7 +38,7 @@ class QuestionPage extends StatelessWidget {
                             horizontal: 10.0, vertical: 10),
                         padding: EdgeInsets.all(20),
                         decoration: BoxDecoration(
-                          color: Color(0xff56b4be),
+                          color: kCardColors2[idx],
                           borderRadius: BorderRadius.all(
                             Radius.circular(10),
                           ),
@@ -45,9 +49,10 @@ class QuestionPage extends StatelessWidget {
                             Text(
                               question,
                               style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey.shade800,
+                              ),
                             ),
                             TextField(
                               maxLines: 10,
@@ -58,7 +63,7 @@ class QuestionPage extends StatelessWidget {
                                   borderSide: BorderSide.none,
                                 ),
                                 filled: true,
-                                fillColor: Color(0xff65bebd),
+                                fillColor: Colors.white,
                               ),
                             )
                           ],
