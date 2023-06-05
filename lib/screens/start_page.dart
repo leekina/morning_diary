@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:morning_diary/screens/question_page.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({super.key});
@@ -18,13 +19,25 @@ class StartPage extends StatelessWidget {
               style: TextStyle(color: Colors.black, fontSize: 30),
               textAlign: TextAlign.center,
             ),
+            SizedBox(height: 12),
+            Text(
+              '하루의 다짐과 계획을 적으면서 하루를 시작해 보세요',
+              style: TextStyle(color: Colors.black, fontSize: 16),
+              textAlign: TextAlign.center,
+            ),
             Icon(
               Icons.image,
               size: MediaQuery.of(context).size.width,
             ),
             SizedBox(height: 30),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => QuestionPage(),
+                    ));
+              },
               style: ElevatedButton.styleFrom(
                   elevation: 0,
                   fixedSize: Size(150, 50),
