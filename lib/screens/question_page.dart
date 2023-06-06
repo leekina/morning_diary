@@ -27,7 +27,8 @@ class QuestionPage extends StatelessWidget {
                 initialPage: 0,
                 enableInfiniteScroll: false,
               ),
-              items: _question.question.asMap().entries.map((questionList) {
+              items:
+                  _question.promiseQuestion.asMap().entries.map((questionList) {
                 String question = questionList.value;
                 int idx = questionList.key;
                 return Builder(
