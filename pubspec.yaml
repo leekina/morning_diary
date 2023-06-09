@@ -38,6 +38,8 @@ dependencies:
   carousel_slider: ^4.2.1
   sqflite: ^2.2.8+4
   flutter_svg: ^2.0.6
+  path: ^1.8.3
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
