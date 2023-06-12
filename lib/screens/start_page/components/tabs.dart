@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'size_config.dart';
+import 'package:morning_diary/components/size_config.dart';
 
 class Tabs extends StatelessWidget {
   const Tabs({

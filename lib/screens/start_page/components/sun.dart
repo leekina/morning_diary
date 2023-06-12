@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'size_config.dart';
+import 'package:morning_diary/components/size_config.dart';
 
 class Sun extends StatelessWidget {
   const Sun({
@@ -25,7 +25,7 @@ class Sun extends StatelessWidget {
         duration: _duration,
         curve: Curves.linear,
         margin: EdgeInsets.only(
-            left: isFullSun ? (MediaQuery.of(context).size.width / 2) + 28 : 0),
+            left: isFullSun ? (MediaQuery.of(context).size.width / 2) + 20 : 0),
         child: SvgPicture.asset(
           "assets/icons/Sun.svg",
         ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'size_config.dart';
+import 'package:morning_diary/components/size_config.dart';
 
 class Land extends StatelessWidget {
   const Land({super.key});
