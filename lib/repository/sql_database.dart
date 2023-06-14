@@ -25,7 +25,7 @@ class SqlDataBase {
 
   Future<void> _initDataBase() async {
     var dataBasePath = await getDatabasesPath();
-    String path = join(dataBasePath, 'sample.db');
+    String path = join(dataBasePath, 'sample3.db');
     _database = await openDatabase(path, version: 1, onCreate: _databaseCreate);
   }
 
@@ -33,8 +33,10 @@ class SqlDataBase {
   void _databaseCreate(Database db, int version) async {
     await db.execute('''
       create table ${Sample.tableName} (
-        ${SampleFields.promiseAns} text,
-        ${SampleFields.planAns} text,
+        ${SampleFields.id} integer primary key autoincrement,
+        ${SampleFields.promiseAns0} text,
+        ${SampleFields.promiseAns1} text,
+        ${SampleFields.promiseAns2} text,
         ${SampleFields.createAt} text not null
       )
     ''');

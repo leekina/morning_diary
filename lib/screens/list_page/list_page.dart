@@ -13,7 +13,7 @@ class _ListPageState extends State<ListPage> {
   void update() => setState(() {});
 
   void delete(Sample sample) async {
-    await SqlSampleCrudRepository.delete(sample.createAt);
+    await SqlSampleCrudRepository.delete(sample.id!);
   }
 
   Widget _sampleOne(Sample sample) {
@@ -27,7 +27,8 @@ class _ListPageState extends State<ListPage> {
         // );
         // update();
         delete(sample);
-        update();
+        setState(() {});
+        //update();
       },
       child: Container(
         color: Colors.white,
@@ -48,7 +49,7 @@ class _ListPageState extends State<ListPage> {
                 ),
                 const SizedBox(width: 7),
                 Text(sample.createAt.toString()),
-                Text(sample.promiseAns.toString()),
+                Text(sample.promiseAns1.toString()),
               ],
             ),
             const SizedBox(height: 7),

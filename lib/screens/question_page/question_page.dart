@@ -5,7 +5,7 @@ import 'package:morning_diary/components/size_config.dart';
 import 'package:morning_diary/models/question.dart';
 import 'package:morning_diary/models/sample.dart';
 import 'package:morning_diary/repository/sql_database_crud.dart';
-import 'package:morning_diary/screens/result_page.dart';
+import 'package:morning_diary/screens/result_page/result_page.dart';
 
 class QuestionPage extends StatelessWidget {
   static final Question _question = Question();
@@ -14,7 +14,13 @@ class QuestionPage extends StatelessWidget {
 
   void saveAnswer(List<String> answerList) async {
     DateTime createAt = DateTime.now();
-    var answers = Sample(promiseAns: answerList, createAt: createAt);
+    print('ansList $answerList');
+    var answers = Sample(
+      promiseAns0: answerList[0],
+      promiseAns1: answerList[1],
+      promiseAns2: answerList[2],
+      createAt: createAt,
+    );
     await SqlSampleCrudRepository.create(answers);
   }
 
@@ -86,7 +92,7 @@ class QuestionPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 //데이터베이스에 저장
-                //saveAnswer(answerList);
+                saveAnswer(answerList);
                 Navigator.push(
                     context,
                     MaterialPageRoute(

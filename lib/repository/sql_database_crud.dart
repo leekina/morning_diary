@@ -15,10 +15,13 @@ class SqlSampleCrudRepository {
   static Future<List<Sample>> getList() async {
     var db = await SqlDataBase().database;
     var result = await db.query(Sample.tableName, columns: [
-      SampleFields.promiseAns,
-      SampleFields.planAns,
+      SampleFields.id,
+      SampleFields.promiseAns0,
+      SampleFields.promiseAns1,
+      SampleFields.promiseAns2,
       SampleFields.createAt,
     ]);
+    print(result);
 
     //반복가능한 집단을 리스트로 만들어주는 과정임
     //원래 리턴값은 샘플이 모인 iterable객체가 결과값으로 나왔지만
@@ -30,19 +33,21 @@ class SqlSampleCrudRepository {
     ).toList();
   }
 
-  // 날짜로 구분해서 하나만 리턴
-  static Future<Sample?> getSampleOne(String date) async {
+  // 아이디로 구분해서 하나만 리턴
+  static Future<Sample?> getSampleOne(String id) async {
     var db = await SqlDataBase().database;
     var result = await db.query(Sample.tableName,
         columns: [
-          SampleFields.promiseAns,
-          SampleFields.planAns,
+          SampleFields.id,
+          SampleFields.promiseAns0,
+          SampleFields.promiseAns1,
+          SampleFields.promiseAns2,
           SampleFields.createAt,
         ],
         //이렇게 하면 패킷띁어서 해킹가능
         //where: '${SampleFields.id} = $id');
-        where: '${SampleFields.createAt} = ?',
-        whereArgs: [date]);
+        where: '${SampleFields.id} = ?',
+        whereArgs: [id]);
 
     //객체 리스트로 변경
     var list = result.map(
@@ -65,18 +70,18 @@ class SqlSampleCrudRepository {
     return await db.update(
       Sample.tableName,
       sample.toJson(),
-      where: '${SampleFields.createAt} = ?',
-      whereArgs: [sample.createAt],
+      where: '${SampleFields.id} = ?',
+      whereArgs: [sample.id],
     );
   }
 
   //삭제
-  static Future<int> delete(DateTime date) async {
+  static Future<int> delete(int id) async {
     var db = await SqlDataBase().database;
     return await db.delete(
       Sample.tableName,
-      where: '${SampleFields.createAt} = ?',
-      whereArgs: [date],
+      where: '${SampleFields.id} = ?',
+      whereArgs: [id],
     );
   }
 }
