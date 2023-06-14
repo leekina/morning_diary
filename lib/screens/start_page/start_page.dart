@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:morning_diary/components/size_config.dart';
-import 'package:morning_diary/screens/question_page/question_page.dart';
 
 import 'components/body.dart';
 

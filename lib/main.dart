@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:morning_diary/screens/start_page.dart';
+import 'package:morning_diary/screens/start_page/start_page.dart';
 
 void main() {
   runApp(const MyApp());

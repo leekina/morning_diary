@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class ResultPage extends StatefulWidget {
   const ResultPage({super.key});
@@ -8,14 +9,18 @@ class ResultPage extends StatefulWidget {
 }
 
 class _ResultPageState extends State<ResultPage> {
+  DateTime now = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        color: Color(0xFFF9E5DB),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Text(DateFormat('yy/MM/dd').format(now)),
             Text(
               '15일 째 아침일기를 적고있습니다.\n 오늘의 부산은 비가올 것 같습니다. 우산을 챙겨가시길 바랍니다.',
               style: TextStyle(
@@ -34,7 +39,7 @@ class _ResultPageState extends State<ResultPage> {
               style: ElevatedButton.styleFrom(
                   elevation: 0,
                   fixedSize: Size(200, 50),
-                  backgroundColor: Color(0xFFF9E5DB)),
+                  backgroundColor: Colors.white),
               child: Text(
                 '홈으로 돌아가기',
                 style: TextStyle(color: Colors.black, fontSize: 20),
