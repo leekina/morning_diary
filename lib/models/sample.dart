@@ -6,16 +6,17 @@ class SampleFields {
 
 class Sample {
   static String tableName = 'sample';
-  List<String>? promiseAns = [];
-  List<String>? planAns = [];
-  DateTime createAt;
+  List<dynamic> promiseAns = []; // 다짐
+  List<String>? planAns = []; // 계획
+  DateTime createAt; //저장날짜
 
   Sample({
-    this.promiseAns,
+    required this.promiseAns,
     this.planAns,
     required this.createAt,
   });
 
+  //json형식으로 변환
   Map<String, dynamic> toJson() {
     return {
       SampleFields.promiseAns: promiseAns,
@@ -24,13 +25,14 @@ class Sample {
     };
   }
 
+  //json -> 클래스 형식으로 변환
   factory Sample.fromJson(Map<String, dynamic> json) {
     return Sample(
       promiseAns: json[SampleFields.promiseAns] == null
-          ? null
-          : json[SampleFields.promiseAns] as List<String>,
+          ? []
+          : json[SampleFields.promiseAns] as List<dynamic>,
       planAns: json[SampleFields.planAns] == null
-          ? null
+          ? []
           : json[SampleFields.planAns] as List<String>,
       createAt: json[SampleFields.createAt] == null
           ? DateTime.now()

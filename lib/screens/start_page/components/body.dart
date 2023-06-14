@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:morning_diary/components/size_config.dart';
+import 'package:morning_diary/screens/list_page/list_page.dart';
 import 'package:morning_diary/screens/question_page/question_page.dart';
 import 'land.dart';
 import 'sun.dart';
@@ -129,7 +130,7 @@ class _BodyState extends State<Body> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => QuestionPage(),
+                                builder: (context) => ListPage(),
                               ));
                         },
                         style: ElevatedButton.styleFrom(

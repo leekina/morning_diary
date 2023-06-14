@@ -71,7 +71,7 @@ class SqlSampleCrudRepository {
   }
 
   //삭제
-  static Future<int> delete(String date) async {
+  static Future<int> delete(DateTime date) async {
     var db = await SqlDataBase().database;
     return await db.delete(
       Sample.tableName,
