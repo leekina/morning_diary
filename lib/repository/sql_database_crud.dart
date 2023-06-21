@@ -7,6 +7,8 @@ class SqlSampleCrudRepository {
   //DB 생성
   static Future<int> create(Sample sample) async {
     var db = await SqlDataBase().database;
+    print(sample.toJson());
+
     var id = await db.insert(Sample.tableName, sample.toJson());
     return id;
   }
@@ -14,14 +16,18 @@ class SqlSampleCrudRepository {
   //디비 리스트로 변경후 전체 리턴
   static Future<List<Sample>> getList() async {
     var db = await SqlDataBase().database;
-    var result = await db.query(Sample.tableName, columns: [
-      SampleFields.id,
-      SampleFields.promiseAns0,
-      SampleFields.promiseAns1,
-      SampleFields.promiseAns2,
-      SampleFields.createAt,
-    ]);
-    print(result);
+    var result = await db.query(
+      Sample.tableName,
+      orderBy: 'createAt DESC',
+      columns: [
+        SampleFields.id,
+        SampleFields.promiseAns0,
+        SampleFields.promiseAns1,
+        SampleFields.promiseAns2,
+        SampleFields.createAt,
+      ],
+    );
+    //print(result);
 
     //반복가능한 집단을 리스트로 만들어주는 과정임
     //원래 리턴값은 샘플이 모인 iterable객체가 결과값으로 나왔지만
