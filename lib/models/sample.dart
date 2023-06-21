@@ -42,10 +42,10 @@ class Sample {
           : json[SampleFields.promiseAns0] as String,
       promiseAns1: json[SampleFields.promiseAns1] == null
           ? ''
-          : json[SampleFields.promiseAns0] as String,
+          : json[SampleFields.promiseAns1] as String,
       promiseAns2: json[SampleFields.promiseAns2] == null
           ? ''
-          : json[SampleFields.promiseAns0] as String,
+          : json[SampleFields.promiseAns2] as String,
       createAt: json[SampleFields.createAt] == null
           ? DateTime.now()
           : DateTime.parse(json[SampleFields.createAt] as String),
