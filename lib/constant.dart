@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 Color kQuestionBackgroundColor1 = Color(0xff8188d3);
 Color kQuestionBackgroundColor2 = Color(0xff8f95d8);
 Color kQuestionBackgroundColor3 = Colors.brown.shade300;
+Color kQuestionBackgroundColor = Color(0xFFF9F5EB);
 List<Color> kCardColors = [
   Color(0xffd7cee4),
   Color(0xffebe3ec),
