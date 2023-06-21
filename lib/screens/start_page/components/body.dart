@@ -130,26 +130,6 @@ class _BodyState extends State<Body> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => ListPage(),
-                              ));
-                        },
-                        style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            fixedSize: Size(150, 50),
-                            backgroundColor: Colors.white),
-                        child: Text(
-                          '리스트',
-                          style: TextStyle(color: Colors.black, fontSize: 20),
-                        ),
-                      ),
-                      VerticalSpacing(
-                        of: 10,
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
                                 builder: (context) => QuestionPage(),
                               ));
                         },
@@ -159,6 +139,24 @@ class _BodyState extends State<Body> {
                             backgroundColor: Colors.white),
                         child: Text(
                           '쓰기',
+                          style: TextStyle(color: Colors.black, fontSize: 20),
+                        ),
+                      ),
+                      VerticalSpacing(of: 10),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ListPage(),
+                              ));
+                        },
+                        style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            fixedSize: Size(150, 50),
+                            backgroundColor: Colors.white),
+                        child: Text(
+                          '리스트',
                           style: TextStyle(color: Colors.black, fontSize: 20),
                         ),
                       ),

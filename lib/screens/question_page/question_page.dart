@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:morning_diary/components/size_config.dart';
+import 'package:morning_diary/constant.dart';
 import 'package:morning_diary/models/question.dart';
 import 'package:morning_diary/models/sample.dart';
 import 'package:morning_diary/repository/sql_database_crud.dart';
@@ -28,12 +29,29 @@ class QuestionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> answerList = ['', '', ''];
     return Scaffold(
-      backgroundColor: Color(0xFFF9E5DB),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text(
+          'asdfad',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: kQuestionBackgroundColor,
+        elevation: 0,
+      ),
+      backgroundColor: kQuestionBackgroundColor,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
           children: [
-            VerticalSpacing(of: 50),
+            VerticalSpacing(of: 30),
             Text(_question.promiseQuestion[0]),
             Container(
               margin: EdgeInsets.all(20),
